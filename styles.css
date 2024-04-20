@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+
+/* Custom properties/variables  */
+
+:root {
+  --main-white: #f0f0f0;
+  --main-cyan: #5ce1e6;
+  --main-blue: #004aad;
+  --main-orange: #e67c36;
+  --main-yellow: #ffd166;
+  --main-green: #00b894;
+  --main-pink: #ff6b81;
+  --main-red: #ff7675;
+  --main-teal: #55efc4;
+  --main-gray: #b2bec3;
+  --main-black: #141010;
+  --main-purple: #8c52ff;
+  --secondory-purple: #680747;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+body{
+  font-family: sans-serif;
+}
+
+section {
+  margin-bottom: 10px;
+  width: 100%;
+  min-height: 80vh;
+  padding: 10vh 0;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1,
+h2 {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 8.4rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+.code {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: transparent;
+  font-style: italic;
+}
+
+/* ====== NAV SECTION ====== */
+.nav {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  background-color: #004aad;
+  margin-top: 1vh;
+  border-radius: 5px;
+  opacity: 0.3;
+
+  &:hover {
+    opacity: 1.0;
+  }
+}
+
+.nav-list li {
+  list-style-type: none;
+  text-align: center;
+  border-radius: 5px;
+  
+  &:hover{
+    background-color: var(--main-white);
+    transition: background-color 1s linear;
+    
+  }
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2rem;
+  padding: 0.5rem;
+  width: 9vh;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  color: var(--main-white);
+  transition: transform 1s;
+  
+  &:hover{
+    color: var(--main-blue);
+    transform: scale(1.2);
+  }
+}
+
+/* ====== WELCOME SECTION ====== */
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: 400% 400%;
+  background: linear-gradient(-45deg, #e73c7e, #23a6d5, #23d5ab, var(--main-cyan), var(--main-blue));
+  animation: gradient 15s ease infinite;
+  height: 100vh; */
+  background: linear-gradient(-45deg, var(--main-blue), var(--main-cyan), var(--main-green));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+
+
+.profile-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vh;
+  height: 40vh;
+}
+
+.profile-circle {
+  position: absolute;
+  width: 34vh;
+  height: 34vh;
+  border: 10px dotted var(--main-white);
+  border-radius: 50%;
+  transition: all 2s;
+  transition-timing-function: ease-in-out;
+}
+
+.profile-image-section {
+  position: absolute;
+  width: 32vh;
+  height: 32vh;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.title-section {
+  background-image: url(./assets/backgrounds/Glow_Loop.gif);
+  background-size: cover;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  margin: 10px 0;
+  letter-spacing: 5px;
+  line-height: 12vh;
+}
+
+.profile-container:hover .profile-circle {
+  border-color: var(--main-teal);
+  transform: rotate(450deg);
+  transition: all 2s;
+}
+
+.profile-container:hover .profile-image-section {
+  transform: scale(1.1);
+  transition: all 1s;
+}
+
+.label-section {
+  font-weight: 100;
+  font-style: italic;
+  color: var(--main-white);
+  border-radius: 10px;
+
+  &:hover{
+    background-color: #111111;
+    color: var(--main-orange);
+    transition: color 2s ease-out,background-color 1.5s linear ;
+  }
+}
+
+.label-section:hover .code{
+  color: var(--main-green);
+  transition: color 1s ease-in;
+}
+
+/* ====== PROJECTS SECTION ====== */
+
+.projects-section {
+  text-align: center;
+  padding: 6rem 0;
+  background: linear-gradient(to left, var(--main-cyan), var(--main-teal));
+  
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.projects-section-header {
+  color: var(--main-white);
+  max-width: 640px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid var(--main-white);
+}
+
+@media (max-width: 28.75em) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: calc(100% - 4rem);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 30.625em) {
+  .projects-section {
+    padding: 6rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background-color: var(--main-blue);
+  border-radius: 4px;
+  text-decoration: none;
+  overflow: hidden;
+
+  &:hover {
+    background-color: var(--main-purple);
+    transition: background-color 1.5s ease-out;
+  }
+
+  &:hover .code {
+    color: var(--main-orange);
+    transition: color 1s ease-in-out;
+  }
+}
+
+.project-image {
+  height: 85%;
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  object-fit: cover;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 1s linear;
+  }
+}
+
+.project-title {
+  color: var(--main-white);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 1vh;
+  overflow: hidden;
+
+  &:hover {
+    background-image: url(./assets/backgrounds/Smoke_Loop.gif);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* ====== CONTACTS SECTION ====== */
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  background: linear-gradient(-45deg, var(--main-orange), var(--main-red));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  text-align: center;
+  color: var(--main-white);
+  padding: 0;
+}
+
+.contact-section-header h1 {
+  background-image: url(./assets/backgrounds/Smoke_Loop.gif);
+  background-clip: text;
+  color: transparent;
+}
+
+.contact-section-header > h1 {
+  font-size: 6rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 28.75em) {
+  .contact-section-header > h1 {
+    font-size: 4rem;
+  }
+}
+
+.contact-section-header p {
+  font-style: italic;
+  font-size: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  width: 100%;
+  max-width: 100vh;
+}
+
+.contact-details {
+  text-decoration: none;
+  color: var(--main-white);
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px var(--main-blue);
+  transition: transform 0.3s ease-out;
+
+  &:hover {
+    transform: translateY(10px);
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+}
+
+/* ====== FOOTER ====== */
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  background: linear-gradient(to right, var(--main-black), var(--secondory-purple));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.footer-section p {
+  color: var(--main-white);
+  font-size: 1.8rem;
+}
