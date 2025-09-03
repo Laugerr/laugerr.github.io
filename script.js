@@ -83,15 +83,32 @@ document.addEventListener("DOMContentLoaded", () => {
   showResumeCategory(activeResumeBtn ? activeResumeBtn.getAttribute("data-category") : "all");
 });
 
-// Visitor counter using CountAPI
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('https://api.countapi.xyz/hit/laugerr.github.io/visits')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('visitor-count').textContent = data.value;
-    })
-    .catch(error => console.error('Visitor counter error:', error));
+  const lastUpdateEl = document.getElementById("last-update");
+  if (lastUpdateEl && !lastUpdateEl.textContent.trim()) {
+    const d = new Date(document.lastModified);
+    lastUpdateEl.textContent = d.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+  }
 
-  // Last update date (based on document last modified)
-  document.getElementById("last-update").textContent = document.lastModified;
+  // Live Dubai time
+  function updateDubaiTime() {
+    const now = new Date();
+    const formatted = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Dubai",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    }).format(now);
+
+    const el = document.getElementById("local-time");
+    if (el) el.textContent = formatted;
+  }
+
+  updateDubaiTime();
+  setInterval(updateDubaiTime, 1000);
 });
