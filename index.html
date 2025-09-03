@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Website</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salah Eddine El Manssouri | Cybersecurity & Software Engineering</title>
+    <meta name="description" content="Portfolio of Salah Eddine El Manssouri – Cybersecurity & Software Engineering student showcasing projects, certifications, and expertise.">
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="Salah Eddine El Manssouri | Cybersecurity Portfolio">
+    <meta property="og:description" content="Showing cybersecurity projects, software engineering skills, certifications, and resume highlights.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laugerr.github.io/">
+    <meta property="og:image" content="https://laugerr.github.io/assets/images/Profile_Picture.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Salah Eddine El Manssouri",
+        "url": "https://laugerr.github.io/",
+        "image": "https://laugerr.github.io/assets/images/Profile_Picture.jpg",
+        "jobTitle": "Cybersecurity & Software Engineering",
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Mykolas Romeris University"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dubai",
+            "addressCountry": "UAE"
+        },
+        "knowsAbout": [
+            "Cybersecurity",
+            "Software Engineering",
+            "Web Development",
+            "Python",
+            "Django",
+            "Risk Management"
+        ],
+        "sameAs": [
+            "https://github.com/laugerr/",
+            "https://www.linkedin.com/in/salah-eddine-el-manssouri-6a56b3192/",
+            "https://www.facebook.com/salahedinelmanssouri/"
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -13,137 +53,133 @@
         <!-- Sidebar -->
         <aside class="sidebar">
         <!-- Profile Section -->
-        <div class="profile">
-            <div class="avatar">
-            <img src="./assets/images/Profile_Picture.jpg" alt="Profile Photo">
+            <div class="profile">
+                <div class="avatar">
+                    <img src="./assets/images/Profile_Picture.jpg" alt="Profile Photo">
+                </div>
+                <h2 class="name">Salah Eddine El Manssouri</h2>
+                <p class="title">Cybersecurity & Software Engineering</p>
             </div>
-            <h2 class="name">Salah Eddine El Manssouri</h2>
-            <p class="title">Cybersecurity & Software Engineering</p>
-        </div>
 
-        <!-- Contact Info -->
-        <div class="contact-info">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="icon">📬</span>
+                    <div class="contact-details">
+                        <span class="label">Email</span>
+                        <span class="value">
+                        <a href="mailto:salaheddineelmanssourii@gmail.com">salaheddineelmanssourii@gmail.com</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <span class="icon">📍</span>
+                    <div class="contact-details">
+                        <span class="label">Location</span>
+                        <span class="value">Dubai, UAE</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <span class="icon">📞</span>
+                    <div class="contact-details">
+                        <span class="label">Phone</span>
+                        <span class="value"><a href="tel:+971559791316">+971 55 979 1316</a></span>
+                </div>
+            </div>
+        
+                <!-- Languages -->
             <div class="contact-item">
-            <span class="icon">📬</span>
-            <div class="contact-details">
-                <span class="label">Email</span>
-                <span class="value">
-                <a href="mailto:salaheddineelmanssourii@gmail.com">salaheddineelmanssourii@gmail.com</a>
-                </span>
-            </div>
+                <span class="icon">🌍</span>
+                <div class="contact-details">
+                    <span class="label">Languages</span>
+                    <div class="language">
+                        <span class="language-name">Arabic</span>
+                        <div class="language-bar">
+                            <div class="fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="language">
+                        <span class="language-name">English</span>
+                        <div class="language-bar">
+                            <div class="fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="language">
+                        <span class="language-name">French</span>
+                        <div class="language-bar">
+                            <div class="fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="language">
+                        <span class="language-name">Russian</span>
+                        <div class="language-bar">
+                            <div class="fill" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+            <!-- Social Links -->
             <div class="contact-item">
-            <span class="icon">📍</span>
-            <div class="contact-details">
-                <span class="label">Location</span>
-                <span class="value">Dubai, UAE</span>
-            </div>
-            </div>
-
-            <div class="contact-item">
-            <span class="icon">📞</span>
-            <div class="contact-details">
-                <span class="label">Phone</span>
-                <span class="value"><a href="tel:+971559791316">+971 55 979 1316</a></span>
-            </div>
-        </div>
-    
-
-            <!-- Languages -->
-        <div class="contact-item">
-        <span class="icon">🌍</span>
-        <div class="contact-details">
-            <span class="label">Languages</span>
-            <div class="language">
-            <span class="language-name">Arabic</span>
-            <div class="language-bar">
-                <div class="fill" style="width: 100%;"></div>
-            </div>
-            </div>
-            <div class="language">
-            <span class="language-name">English</span>
-            <div class="language-bar">
-                <div class="fill" style="width: 95%;"></div>
-            </div>
-            </div>
-            <div class="language">
-            <span class="language-name">French</span>
-            <div class="language-bar">
-                <div class="fill" style="width: 70%;"></div>
-            </div>
-            </div>
-            <div class="language">
-            <span class="language-name">Russian</span>
-            <div class="language-bar">
-                <div class="fill" style="width: 40%;"></div>
-            </div>
-            </div>
-        </div>
-        </div>
-
-        <!-- Social Links -->
-        <div class="contact-item">
-            <span class="icon">🔗</span>
-            <div class="contact-details">
-                <span class="label">Connect</span>
-                <div class="social-links">
-                <a href="https://www.facebook.com/salahedinelmanssouri/" target="_blank" class="social-link">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://github.com/laugerr/" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/salah-eddine-el-manssouri-6a56b3192/" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+                <span class="icon">🔗</span>
+                <div class="contact-details">
+                    <span class="label">Let's Connect</span>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/salahedinelmanssouri/" target="_blank" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://github.com/laugerr/" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/salah-eddine-el-manssouri-6a56b3192/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </aside>
 
 
     <!-- Main Content -->
     <main class="main-content">
       <!-- Navigation -->
-      <nav class="navigation">
-        <button class="nav-btn active" data-section="about">About</button>
-        <button class="nav-btn" data-section="resume">Resume</button>
-        <button class="nav-btn" data-section="portfolio">Portfolio</button>
-        <button class="nav-btn" data-section="blog">Blog</button>
-        <button class="nav-btn" data-section="contact">Contact</button>
-      </nav>
+        <nav class="navigation">
+            <button class="nav-btn active" data-section="about" aria-label="Go to About section">About</button>
+            <button class="nav-btn" data-section="resume" aria-label="Go to Resume section">Resume</button>
+            <button class="nav-btn" data-section="portfolio" aria-label="Go to Portfolio section">Portfolio</button>
+            <button class="nav-btn" data-section="blog" aria-label="Go to Blog section">Blog</button>
+            <button class="nav-btn" data-section="contact" aria-label="Go to Contact section">Contact</button>
+        </nav>
 
-      <!-- About Section -->
-    <section id="about" class="section active">
-    <h2 class="section-title">About Me</h2>
-        <p class="intro-text">
-            Hi, I’m <strong>Salah</strong> — a motivated learner with a deep passion for technology 🔐 and cybersecurity 🖥️.
-            I’ve always been fascinated by how systems work ⚙️ and, more importantly, how they can be secured 🔒.
-            That curiosity drives me to keep exploring, questioning, and improving every day.
-        </p>
+        <!-- About Section -->
+        <section id="about" class="section active">
+            <h2 class="section-title">About Me</h2>
+            <p class="intro-text">
+                Hi, I’m <strong>Salah</strong> — a motivated learner with a deep passion for technology 🔐 and cybersecurity 🖥️.
+                I’ve always been fascinated by how systems work ⚙️ and, more importantly, how they can be secured 🔒.
+                That curiosity drives me to keep exploring, questioning, and improving every day.
+            </p>
 
-        <p class="intro-text">
-            Beyond academics and professional goals, I enjoy balancing life with activities that keep me grounded 🌍.
-            Football ⚽ fuels my competitive spirit and teamwork mindset, fishing 🎣 gives me patience and time to reflect,
-            and hiking ⛰️ reconnects me with nature while pushing me to go further — literally and figuratively.
-        </p>
+            <p class="intro-text">
+                Beyond academics and professional goals, I enjoy balancing life with activities that keep me grounded 🌍.
+                Football ⚽ fuels my competitive spirit and teamwork mindset, fishing 🎣 gives me patience and time to reflect,
+                and hiking ⛰️ reconnects me with nature while pushing me to go further — literally and figuratively.
+            </p>
 
-        <p class="intro-text">
-            I believe growth comes from curiosity ✨, persistence 💪, and staying open to new perspectives 🌟.
-            Whether I’m solving a security challenge 🛡️, hiking up a trail ⛰️, or simply learning something new 📚,
-            I’m always striving to push boundaries and keep moving forward.
-        </p>
-        <div class="about-gallery">
-            <img src="./assets/images/Enjoing_Coffee_UA.jpg" alt="Salah enjoiying coffee☕">
-            <img src="./assets/images/Sharjah_Aquarium_Musuem.jpg" alt="Salah visiting Sharjah Aquarium Museum🌊">
-        </div>
+            <p class="intro-text">
+                I believe growth comes from curiosity ✨, persistence 💪, and staying open to new perspectives 🌟.
+                Whether I’m solving a security challenge 🛡️, hiking up a trail ⛰️, or simply learning something new 📚,
+                I’m always striving to push boundaries and keep moving forward.
+            </p>
+            <div class="about-gallery">
+                <img src="./assets/images/Enjoing_Coffee_UA.jpg" alt="Salah enjoiying coffee☕">
+                <img src="./assets/images/Sharjah_Aquarium_Musuem.jpg" alt="Salah visiting Sharjah Aquarium Museum🌊">
+            </div>
+        </section>
 
-    </section>
-
-
-        <!-- Resume Section -->
         <!-- Resume Section -->
         <section id="resume" class="section">
             <h2 class="section-title">Resume</h2>
@@ -160,121 +196,116 @@
 
             <div class="resume-content">
                 <!-- Experience -->
-                
                 <div class="resume-category" data-category="experience">
-                <h3 class="resume-section-title">💼 Experience</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>👨‍💼 Customer Service Representative</h4>
-                        <span class="timeline-date">Jun. 2024 — Jul. 2025</span>
-                        <p class="location"><span class="city">Dubai</span> - UAE • Cupola (Contracted for RTA 800 90 90 Project)</p>
-                        <p>
-                        Delivered prompt and efficient customer support, addressing inquiries and resolving issues via phone and email.
-                        Managed customer accounts by updating information and processing transactions with accuracy and attention to detail.
-                        Worked collaboratively with team members to enhance service delivery and improve overall customer satisfaction.
-                        </p>
+                    <h3 class="resume-section-title">💼 Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>👨‍💼 Customer Service Representative</h4>
+                                <span class="timeline-date">Jun. 2024 — Jul. 2025</span>
+                                <p class="location"><span class="city">Dubai</span> - UAE • Cupola (Contracted for RTA 800 90 90 Project)</p>
+                                <p>
+                                Delivered prompt and efficient customer support, addressing inquiries and resolving issues via phone and email.
+                                Managed customer accounts by updating information and processing transactions with accuracy and attention to detail.
+                                Worked collaboratively with team members to enhance service delivery and improve overall customer satisfaction.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>📊 Data Gathering Specialist</h4>
+                                <span class="timeline-date">Oct. 2022 — Sept. 2023</span>
+                                <p class="location"><span class="city">Aachen</span> - Germany • Thoth IT (Contracted for TikTok Project)</p>
+                                <p>
+                                Spearheaded data gathering initiatives for TikTok’s user engagement analysis.
+                                Utilized advanced techniques to gather, analyze, and interpret data for actionable insights.
+                                Collaborated with cross-functional teams to ensure data accuracy and integrity throughout the project lifecycle.
+                                Generated detailed reports highlighting errors and missing data, facilitating prompt resolution and data completion.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-
-                    <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>📊 Data Gathering Specialist</h4>
-                        <span class="timeline-date">Oct. 2022 — Sept. 2023</span>
-                        <p class="location"><span class="city">Aachen</span> - Germany • Thoth IT (Contracted for TikTok Project)</p>
-                        <p>
-                        Spearheaded data gathering initiatives for TikTok’s user engagement analysis.
-                        Utilized advanced techniques to gather, analyze, and interpret data for actionable insights.
-                        Collaborated with cross-functional teams to ensure data accuracy and integrity throughout the project lifecycle.
-                        Generated detailed reports highlighting errors and missing data, facilitating prompt resolution and data completion.
-                        </p>
-                    </div>
-                    </div>
-                </div>
                 </div>
 
                 <!-- Education -->
                 <div class="resume-category" data-category="education">
-                <h3 class="resume-section-title">🎓 Education</h3>
+                    <h3 class="resume-section-title">🎓 Education</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>🎓 Master’s in Cybersecurity Management</h4>
+                                <span class="timeline-date">2025 — Present</span>
+                                <p class="location"><span class="city">Vilnius</span> - Lithuania • Mykolas Romeris University (MRU)</p>
+                                </div>
+                        </div>
+                    
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>🎓 Bachelor of Applied Science in Information Technology: Software Engineering</h4>
+                                <span class="timeline-date">2019 — 2023</span>
+                                <p class="location"><span class="city">Kharkiv</span> - Ukraine</p>
+                                <p>National Technical University “Kharkiv Polytechnic”.</p>
+                            </div>
+                        </div>
 
-                <div class="timeline">
-                    <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>🎓 Master’s in Cybersecurity Management</h4>
-                        <span class="timeline-date">2025 — Present</span>
-                        <p class="location"><span class="city">Vilnius</span> - Lithuania • Mykolas Romeris University (MRU)</p>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>🎓 Software Engineering</h4>
+                                <span class="timeline-date">2018 — 2019</span>
+                                <p class="location"><span class="city">Belgorod</span> - Russia</p>
+                                <p>Belgorod “State Technology University”.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>🎓 Language Certificate: Russian Language</h4>
+                                <span class="timeline-date">2017 — 2018</span>
+                                <p class="location"><span class="city">Tula</span> - Russia</p>
+                                <p>Tula State University.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>🎓 Economics</h4>
+                                <span class="timeline-date">2016 — 2017</span>
+                                <p class="location"><span class="city">Rabat</span> - Morocco</p>
+                                <p>Mohammed V University of Rabat.</p>
+                            </div>
                         </div>
                     </div>
-                
-                
-                    <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>🎓 Bachelor of Applied Science in Information Technology: Software Engineering</h4>
-                        <span class="timeline-date">2019 — 2023</span>
-                        <p class="location"><span class="city">Kharkiv</span> - Ukraine</p>
-                        <p>National Technical University “Kharkiv Polytechnic”.</p>
-                    </div>
-                    </div>
-
-                    <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>🎓 Software Engineering</h4>
-                        <span class="timeline-date">2018 — 2019</span>
-                        <p class="location"><span class="city">Belgorod</span> - Russia</p>
-                        <p>Belgorod “State Technology University”.</p>
-                    </div>
-                    </div>
-
-                    <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>🎓 Language Certificate: Russian Language</h4>
-                        <span class="timeline-date">2017 — 2018</span>
-                        <p class="location"><span class="city">Tula</span> - Russia</p>
-                        <p>Tula State University.</p>
-                    </div>
-                    </div>
-
-                    <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>🎓 Economics</h4>
-                        <span class="timeline-date">2016 — 2017</span>
-                        <p class="location"><span class="city">Rabat</span> - Morocco</p>
-                        <p>Mohammed V University of Rabat.</p>
-                    </div>
-                    </div>
-                </div>
                 </div>
 
                 <!-- Internship -->
                 <div class="resume-category" data-category="internship">
-                <h3 class="resume-section-title">📑 Internship</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>👨‍💻 Internship Student</h4>
-                        <span class="timeline-date">2020 — 2022</span>
-                        <p class="location"><span class="city">Kharkiv</span> - Ukraine • Ucode IT Academy</p>
-                        <p>
-                        Worked on both Front-end and Back-end. Built a REST API using Laravel (Back-End Marathon),
-                        then used the same API to build platforms (Front-end) like an Online Shop and a Forum.
-                        </p>
+                    <h3 class="resume-section-title">📑 Internship</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>👨‍💻 Internship Student</h4>
+                                <span class="timeline-date">2020 — 2022</span>
+                                <p class="location"><span class="city">Kharkiv</span> - Ukraine • Ucode IT Academy</p>
+                                <p>
+                                Worked on both Front-end and Back-end. Built a REST API using Laravel (Back-End Marathon),
+                                then used the same API to build platforms (Front-end) like an Online Shop and a Forum.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
                 </div>
 
                 <!-- Skills -->
-                <!-- Skills -->
                 <div class="resume-category" data-category="skills">
-                <h3 class="resume-section-title">🛠️ Skills</h3>
+                    <h3 class="resume-section-title">🛠️ Skills</h3>
                     <div class="skills-grid">
 
                         <!-- Cybersecurity -->
@@ -296,7 +327,7 @@
                                 <li>Python, Django (Web Applications & Deployment)</li>
                                 <li>Git & Version Control (GitHub, GitLab)</li>
                                 <li>API Design & Integration (REST, JSON)</li>
-                                <li>Web Development (HTML, CSS, JavaScript, Responsive Design)/li>
+                                <li>Web Development (HTML, CSS, JavaScript, Responsive Design)</li>
                             </ul>
                         </div>
 
@@ -330,15 +361,13 @@
                             <li>Project Management Fundamentals</li>
                         </ul>
                         </div>
-
                     </div>
                 </div>
 
                 <!-- Certificates (Portfolio-style cards with PDF links) -->
-
                  <!-- ================= CERTIFICATES ================= -->
                 <div class="resume-category" data-category="certificates">
-                <h3 class="resume-section-title">📜 Certificates</h3>
+                    <h3 class="resume-section-title">📜 Certificates</h3>
                     <div class="portfolio-grid certificates-grid">
 
                         <!-- Certificate 1 -->
@@ -439,85 +468,82 @@
                             <p>HackerRank</p>
                         </div>
                         </a>
-
                     </div>
                 </div>
-
-                
+            </div>
         </section>
 
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section">
+            <h2 class="section-title">Portfolio</h2>
 
-
-      <!-- Portfolio Section -->
-      <section id="portfolio" class="section">
-        <h2 class="section-title">Portfolio</h2>
-
-        <div class="filter-tabs">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="web-design">Web Design</button>
-          <button class="filter-btn" data-filter="applications">Applications</button>
-          <button class="filter-btn" data-filter="web-development">Web Development</button>
-        </div>
-
-        <div class="portfolio-grid">
-          <div class="portfolio-item" data-category="web-design">
-            <img src="./assets/projects/Product_Landing_Page.png" alt="Landing Page">
-            <div class="portfolio-overlay">
-              <h4>Landing Page</h4>
-              <p>Landing Page</p>
+            <!-- Portfolio Filter -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web-design">Web Design</button>
+                <button class="filter-btn" data-filter="applications">Applications</button>
+                <button class="filter-btn" data-filter="web-development">Web Development</button>
             </div>
-          </div>
-          <div class="portfolio-item" data-category="web-design">
-            <img src="./assets/projects/Survey_Form.png" alt="Landing Page">
-            <div class="portfolio-overlay">
-              <h4>Landing Page</h4>
-              <p>Landing Page</p>
-            </div>
-          </div>
-          <div class="portfolio-item" data-category="web-design">
-            <img src="./assets/projects/Technical_Documentation_Page.png" alt="Landing Page">
-            <div class="portfolio-overlay">
-              <h4>Landing Page</h4>
-              <p>Landing Page</p>
-            </div>
-          </div>
-          <div class="portfolio-item" data-category="web-design">
-            <img src="./assets/projects/Tribute_Page.png" alt="Landing Page">
-            <div class="portfolio-overlay">
-              <h4>Landing Page</h4>
-              <p>Landing Page</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Blog Section -->
-      <section id="blog" class="section">
-        <h2 class="section-title">Blog</h2>
-        <div class="blog-grid">
-          <!-- <div class="blog-item">
-            <img src="blog1.jpg" alt="Blog 1">
-            <div class="blog-content">
-              <span class="blog-meta">March 2023</span>
-              <h3>Blog Title</h3>
-              <p>Short description of the blog post.</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web-design">
+                    <img src="./assets/projects/Product_Landing_Page.png" alt="Landing Page">
+                    <div class="portfolio-overlay">
+                        <h4>Landing Page</h4>
+                        <p>Landing Page</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web-design">
+                    <img src="./assets/projects/Survey_Form.png" alt="Landing Page">
+                    <div class="portfolio-overlay">
+                        <h4>Survey_Form</h4>
+                        <p>Survey_Form</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web-design">
+                    <img src="./assets/projects/Technical_Documentation_Page.png" alt="Landing Page">
+                    <div class="portfolio-overlay">
+                        <h4>Technical_Documentation_Page</h4>
+                        <p>Technical_Documentation_Page</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web-design">
+                    <img src="./assets/projects/Tribute_Page.png" alt="Landing Page">
+                    <div class="portfolio-overlay">
+                        <h4>Tribute_Page</h4>
+                        <p>Tribute_Page</p>
+                    </div>
+                </div>
             </div>
-          </div> -->
-          <h3>Coming soon 😄!</h3>
-        </div>
-      </section>
+        </section>
 
-      <!-- Contact Section -->
-      <section id="contact" class="section">
-        <h2 class="section-title">Contact</h2>
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <h2 class="section-title">Blog</h2>
+            <div class="blog-grid">
+            <!-- <div class="blog-item">
+                <img src="blog1.jpg" alt="Blog 1">
+                <div class="blog-content">
+                <span class="blog-meta">March 2023</span>
+                <h3>Blog Title</h3>
+                <p>Short description of the blog post.</p>
+                </div>
+            </div> -->
+            <h3>Coming soon 😄!</h3>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact</h2>
             <div class="contact-content">
 
                 <!-- Map Section -->
                 <div class="map-container">
                     <iframe
                         src="https://www.google.com/maps?q=25.233755644497926,55.43627819506999&t=k&hl=en&z=16&output=embed"
-                        width="100%"
-                        height="100%"
+                        width="600"
+                        height="400"
                         style="border:0;"
                         allowfullscreen=""
                         loading="lazy"
@@ -527,11 +553,11 @@
 
                 <!-- Contact Form -->
                 <div class="contact-form-section">
-                <h3>Send Me a Message</h3>
+                    <h3>Send Me a Message</h3>
                     <form class="contact-form" action="https://formspree.io/f/xkgvvykq" method="POST">
                         <div class="form-row">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
                         <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
                         <button type="submit" class="submit-btn">Send Message</button>
@@ -541,12 +567,7 @@
         </section>
     </main>
   </div>
-
-  <!-- External JS -->
-  <script src="script.js"></script>
-</body>
-
-<footer class="footer">
+  <footer class="footer">
   <div class="footer-content">
     <div class="copyright">
       © 2025 Salah Eddine El Manssouri. All rights reserved.
@@ -559,6 +580,7 @@
     </div>
   </div>
 </footer>
-
-
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
 </html>
