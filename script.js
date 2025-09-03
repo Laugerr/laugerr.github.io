@@ -82,3 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const activeResumeBtn = document.querySelector(".resume-btn.active");
   showResumeCategory(activeResumeBtn ? activeResumeBtn.getAttribute("data-category") : "all");
 });
+
+// Visitor counter using CountAPI
+document.addEventListener("DOMContentLoaded", () => {
+  fetch('https://api.countapi.xyz/hit/laugerr.github.io/visits')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('visitor-count').textContent = data.value;
+    })
+    .catch(error => console.error('Visitor counter error:', error));
+
+  // Last update date (based on document last modified)
+  document.getElementById("last-update").textContent = document.lastModified;
+});
