@@ -2,98 +2,118 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   /* ========= Navigation ========= */
-const navButtons = document.querySelectorAll(".nav-btn");
-const sections = document.querySelectorAll(".section");
+  const navButtons = document.querySelectorAll(".nav-btn");
+  const sections = document.querySelectorAll(".section");
 
-navButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    const target = button.getAttribute("data-section");
-
-    // Update active states
-    navButtons.forEach(btn => {
-      btn.classList.remove("active");
-      btn.setAttribute("aria-selected", "false");
-      btn.setAttribute("tabindex", "-1");
+  function activateSection(id) {
+    navButtons.forEach((btn) => {
+      const isActive = btn.getAttribute("data-section") === id;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-selected", String(isActive));
+      btn.setAttribute("tabindex", isActive ? "0" : "-1");
     });
-    sections.forEach(sec => sec.classList.remove("active"));
 
-    // Activate the clicked section
-    const targetSection = document.getElementById(target);
-    button.classList.add("active");
-    button.setAttribute("aria-selected", "true");
-    button.setAttribute("tabindex", "0");
-    targetSection.classList.add("active");
+    sections.forEach((sec) => sec.classList.remove("active"));
+    const targetSection = document.getElementById(id);
+    if (targetSection) targetSection.classList.add("active");
+    // persist
+    try { localStorage.setItem("activeSection", id); } catch {}
+  }
+
+  navButtons.forEach((button) => {
+    const target = button.getAttribute("data-section");
+    button.addEventListener("click", () => activateSection(target));
+    // Keyboard support: left/right to move between tabs
+    button.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      e.preventDefault();
+      const list = Array.from(navButtons);
+      const i = list.indexOf(button);
+      const nextIdx = e.key === "ArrowRight" ? (i + 1) % list.length : (i - 1 + list.length) % list.length;
+      list[nextIdx].focus();
+      list[nextIdx].click();
+    });
   });
-});
 
-// Restore last active section if available
-const savedSection = localStorage.getItem("activeSection");
-if (savedSection) {
-  document.querySelector(`[data-section="${savedSection}"]`)?.click();
-} else {
-  // Default to the first nav button
-  navButtons[0]?.click();
-}
-
+  // Restore last active section if available, else first
+  const savedSection = (() => {
+    try { return localStorage.getItem("activeSection"); } catch { return null; }
+  })();
+  if (savedSection && document.getElementById(savedSection)) {
+    activateSection(savedSection);
+  } else {
+    navButtons[0]?.click();
+  }
 
   /* ========= Portfolio Filter ========= */
   const filterButtons = document.querySelectorAll(".filter-btn");
   const portfolioItems = document.querySelectorAll(".portfolio-item");
 
   function filterPortfolio(category) {
-    portfolioItems.forEach(item => {
+    portfolioItems.forEach((item) => {
       const itemCategory = item.getAttribute("data-category");
-      item.classList.toggle(
-        "hidden",
-        !(category === "all" || itemCategory === category)
-      );
+      const show = category === "all" || itemCategory === category;
+      item.classList.toggle("hidden", !show);
     });
   }
 
-  filterButtons.forEach(button => {
+  function setActiveFilter(btn, group) {
+    group.forEach((b) => {
+      const isActive = b === btn;
+      b.classList.toggle("active", isActive);
+      b.setAttribute("aria-pressed", String(isActive));
+    });
+  }
+
+  filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const category = button.getAttribute("data-filter");
-
-      // Update button states
-      filterButtons.forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      // Filter items
+      const category = button.getAttribute("data-filter") || "all";
+      setActiveFilter(button, filterButtons);
       filterPortfolio(category);
+      try { localStorage.setItem("portfolioFilter", category); } catch {}
     });
   });
 
-  // Initial state: "All" active
-  const activeFilterBtn = document.querySelector(".filter-btn.active");
-  filterPortfolio(activeFilterBtn ? activeFilterBtn.getAttribute("data-filter") : "all");
+  // Initial portfolio state
+  const savedFilter = (() => {
+    try { return localStorage.getItem("portfolioFilter"); } catch { return null; }
+  })();
+  const initialFilterBtn =
+    (savedFilter && document.querySelector(`.filter-btn[data-filter="${savedFilter}"]`)) ||
+    document.querySelector(".filter-btn.active");
+  const initialFilter = initialFilterBtn ? initialFilterBtn.getAttribute("data-filter") : "all";
+  if (initialFilterBtn) setActiveFilter(initialFilterBtn, filterButtons);
+  filterPortfolio(initialFilter || "all");
 
   /* ========= Resume Filter ========= */
   const resumeButtons = document.querySelectorAll(".resume-btn");
   const resumeCategories = document.querySelectorAll(".resume-category");
 
   function showResumeCategory(category) {
-    resumeCategories.forEach(cat => {
+    resumeCategories.forEach((cat) => {
       const match = category === "all" || cat.getAttribute("data-category") === category;
       cat.classList.toggle("hidden", !match);
     });
   }
 
-  resumeButtons.forEach(button => {
+  resumeButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const category = button.getAttribute("data-category");
-
-      // Update button states
-      resumeButtons.forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      // Show categories
+      const category = button.getAttribute("data-category") || "all";
+      setActiveFilter(button, resumeButtons);
       showResumeCategory(category);
+      try { localStorage.setItem("resumeFilter", category); } catch {}
     });
   });
 
-  // Initial state: "All" active
-  const activeResumeBtn = document.querySelector(".resume-btn.active");
-  showResumeCategory(activeResumeBtn ? activeResumeBtn.getAttribute("data-category") : "all");
+  const savedResume = (() => {
+    try { return localStorage.getItem("resumeFilter"); } catch { return null; }
+  })();
+  const initialResumeBtn =
+    (savedResume && document.querySelector(`.resume-btn[data-category="${savedResume}"]`)) ||
+    document.querySelector(".resume-btn.active");
+  const initialResume = initialResumeBtn ? initialResumeBtn.getAttribute("data-category") : "all";
+  if (initialResumeBtn) setActiveFilter(initialResumeBtn, resumeButtons);
+  showResumeCategory(initialResume || "all");
 
   /* ========= Footer Info ========= */
   const lastUpdateEl = document.getElementById("last-update");
@@ -102,91 +122,108 @@ if (savedSection) {
     lastUpdateEl.textContent = d.toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
-      day: "numeric"
+      day: "numeric",
     });
   }
 
   // Live Dubai time
   function updateDubaiTime() {
-  const now = new Date();
+    const now = new Date();
+    const date = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Dubai",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).format(now);
 
-  // Format date as DD/MM/YYYY
-  const date = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Asia/Dubai",
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric"
-  }).format(now);
+    const time = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Dubai",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    }).format(now);
 
-  // Format time
-  const time = new Intl.DateTimeFormat("en-US", {
-    timeZone: "Asia/Dubai",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true
-  }).format(now);
-
-  const el = document.getElementById("local-time");
-  if (el) el.textContent = `${time} | ${date}`;
-}
-
+    const el = document.getElementById("local-time");
+    if (el) el.textContent = `${time} | ${date}`;
+  }
   updateDubaiTime();
   setInterval(updateDubaiTime, 1000);
-});
 
-/* ========= Background Music ========= */
+  /* ========= Background Music ========= */
+  const music = document.getElementById("bg-music");
+  const toggleBtn = document.getElementById("music-toggle");
+  const nextBtn = document.getElementById("next-track");
+  const prevBtn = document.getElementById("prev-track");
+  const volumeSlider = document.getElementById("volume-control");
 
-const music = document.getElementById("bg-music");
-const toggleBtn = document.getElementById("music-toggle");
-const nextBtn = document.getElementById("next-track");
-const prevBtn = document.getElementById("prev-track");
-const volumeSlider = document.getElementById("volume-control");
+  if (music && toggleBtn && nextBtn && prevBtn && volumeSlider) {
+    const tracks = [
+      "./assets/music/Stromae_Santé.mp3",
+      "./assets/music/Stromae_Moules_Frites.mp3",
+    ];
 
-// List of available tracks
-const tracks = [
-  "./assets/music/Stromae_Santé.mp3",
-  "./assets/music/Stromae_Moules_Frites.mp3"
-];
+    let isPlaying = false;
+    let currentTrackIndex = 0;
 
-let isPlaying = false;
-let currentTrackIndex = 0;
+    function setToggleText(playing) {
+      toggleBtn.textContent = playing ? "⏸ Pause Music" : "🎵 Play Music";
+      toggleBtn.setAttribute("aria-pressed", playing ? "true" : "false");
+    }
 
-// Load a specific track
-function loadTrack(index) {
-  currentTrackIndex = index;
-  music.src = tracks[currentTrackIndex];
-  music.play();
-  toggleBtn.textContent = "⏸ Pause Music";
-  isPlaying = true;
-}
+    async function loadTrack(index, autoPlay = true) {
+      currentTrackIndex = index;
+      music.src = tracks[currentTrackIndex];
+      if (autoPlay) {
+        try {
+          await music.play();
+          isPlaying = true;
+          setToggleText(true);
+        } catch (err) {
+          // Autoplay blocked until user gesture—show play state
+          isPlaying = false;
+          setToggleText(false);
+          console.warn("Autoplay prevented:", err);
+        }
+      } else {
+        isPlaying = false;
+        setToggleText(false);
+      }
+    }
 
-// Toggle Play/Pause
-toggleBtn.addEventListener("click", () => {
-  if (!isPlaying) {
-    // If nothing is playing, pick random track
-    const randomIndex = Math.floor(Math.random() * tracks.length);
-    loadTrack(randomIndex);
-  } else {
-    music.pause();
-    toggleBtn.textContent = "🎵 Play Music";
-    isPlaying = false;
+    toggleBtn.addEventListener("click", async () => {
+      if (!isPlaying) {
+        // If nothing is playing, pick random track
+        const randomIndex = Math.floor(Math.random() * tracks.length);
+        await loadTrack(randomIndex, true);
+      } else {
+        music.pause();
+        isPlaying = false;
+        setToggleText(false);
+      }
+    });
+
+    nextBtn.addEventListener("click", async () => {
+      const nextIndex = (currentTrackIndex + 1) % tracks.length;
+      await loadTrack(nextIndex, true);
+    });
+
+    prevBtn.addEventListener("click", async () => {
+      const prevIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+      await loadTrack(prevIndex, true);
+    });
+
+    volumeSlider.addEventListener("input", () => {
+      music.volume = Number(volumeSlider.value);
+    });
+
+    // When a track ends, advance
+    music.addEventListener("ended", async () => {
+      const nextIndex = (currentTrackIndex + 1) % tracks.length;
+      await loadTrack(nextIndex, true);
+    });
+
+    // Initialize (no autoplay to avoid errors)
+    loadTrack(0, false);
   }
-});
-
-// Next Track
-nextBtn.addEventListener("click", () => {
-  let nextIndex = (currentTrackIndex + 1) % tracks.length;
-  loadTrack(nextIndex);
-});
-
-// Previous Track
-prevBtn.addEventListener("click", () => {
-  let prevIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-  loadTrack(prevIndex);
-});
-
-// Volume Control
-volumeSlider.addEventListener("input", () => {
-  music.volume = volumeSlider.value;
 });
