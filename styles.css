@@ -203,14 +203,28 @@ body {
 .service-content p { color: #ccc; line-height: 1.6; }
 
 .about-gallery {
-  margin-top: 30px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
 }
 .about-gallery img {
-  width: 45%; max-width: 300px; border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3; /* keeps consistent proportions */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  filter: brightness(0.95) contrast(1.05);
 }
-.about-gallery img:hover { transform: scale(1.05); box-shadow: 0 12px 28px rgba(0,0,0,0.45); }
+.about-gallery img:hover { 
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+  filter: brightness(1.05) contrast(1.1);
+}
 
 /* ================================
    Resume Section with Tabs
@@ -361,6 +375,15 @@ body {
   .services-grid, .portfolio-grid, .blog-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .filter-tabs { gap: 15px; }
+  .about-gallery {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .about-gallery img {
+    max-width: 90%;
+    aspect-ratio: auto;
+  }
 }
 
 @media (max-width: 480px) {

@@ -126,29 +126,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Live Dubai time
-  function updateDubaiTime() {
+  // Live Vilnius time
+  function updateVilniusTime() {
     const now = new Date();
+
     const date = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Asia/Dubai",
+      timeZone: "Europe/Vilnius",
       day: "2-digit",
       month: "2-digit",
       year: "numeric",
     }).format(now);
 
-    const time = new Intl.DateTimeFormat("en-US", {
-      timeZone: "Asia/Dubai",
+    const time = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/Vilnius",
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
-      hour12: true,
+      hour12: false,
     }).format(now);
 
     const el = document.getElementById("local-time");
     if (el) el.textContent = `${time} | ${date}`;
   }
-  updateDubaiTime();
-  setInterval(updateDubaiTime, 1000);
+
+  updateVilniusTime();
+  setInterval(updateVilniusTime, 1000);
 
   /* ========= Background Music ========= */
   const music = document.getElementById("bg-music");
