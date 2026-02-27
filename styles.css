@@ -504,3 +504,35 @@ body {
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.section-title-row .section-title {
+  margin-bottom: 0;
+}
+
+.resume-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--elev-border);
+  border-radius: 10px;
+  color: var(--accent);
+  background: var(--elev);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.resume-download:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
