@@ -128,13 +128,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const visitorCountEl = document.getElementById("visitor-count");
   if (visitorCountEl) {
-    fetch("https://api.countapi.xyz/hit/laugerr.github.io/portfolio-visitors")
+    fetch("https://laugerr.goatcounter.com/counter/TOTAL.json")
       .then((response) => {
         if (!response.ok) throw new Error("Counter request failed");
         return response.json();
       })
       .then((data) => {
-        visitorCountEl.textContent = new Intl.NumberFormat("en-US").format(data.value);
+        visitorCountEl.textContent = data.count || "0";
       })
       .catch(() => {
         visitorCountEl.textContent = "Unavailable";
