@@ -126,6 +126,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const visitorCountEl = document.getElementById("visitor-count");
+  if (visitorCountEl) {
+    fetch("https://api.countapi.xyz/hit/laugerr.github.io/portfolio-visitors")
+      .then((response) => {
+        if (!response.ok) throw new Error("Counter request failed");
+        return response.json();
+      })
+      .then((data) => {
+        visitorCountEl.textContent = new Intl.NumberFormat("en-US").format(data.value);
+      })
+      .catch(() => {
+        visitorCountEl.textContent = "Unavailable";
+      });
+  }
+
   // Live Vilnius time
   function updateVilniusTime() {
     const now = new Date();
