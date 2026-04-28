@@ -243,4 +243,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize (no autoplay to avoid errors)
     loadTrack(0, false);
   }
+
 });
